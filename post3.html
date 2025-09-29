@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Новость</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Шапка -->
+<header>
+  <div class="header-top">
+    <div class="faculty">Факультет физико-математического образования информатики и технологий</div>
+    <h1 class="group-title">ФТ-ИТиВП-25</h1>
+  </div>
+
+    <nav>
+    <ul class="header-menu">
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="we.html">Мы</a></li>
+      <li><a href="life.html">Жизнь группы</a></li>
+      <li><a href="news.html"  class="active">Новости</a></li>
+      <li><a href="contact.html" >Контакты</a></li>
+    </ul>
+    <!-- Кнопка бургер -->
+    <button class="burger" aria-label="Открыть меню">
+    <span></span>
+    <span></span>
+    <span></span>
+    </button>
+  </nav>
+</header>
+
+  <!-- Контент -->
+  <main>
+    <section class="news-post">
+      <h2 class="page-title fade-in-up">"Вертушка" в стенах ЧГПУ</h2>
+      <p class="post-date fade-in-up">📅 11 сентября 2025</p>
+
+      <!-- Галерея -->
+      <div class="gallery-news fade-in-up">
+      <!-- Основное фото -->
+      <div class="gallery-main">
+        <img src="img/Вертушка.jpg" alt="Главное фото">
+      </div>
+
+      <button class="gallery-prev">&#10094;</button>
+      <button class="gallery-next">&#10095;</button>
+
+      <!-- Миниатюры -->
+      <div class="gallery-thumbs">
+        <img src="img/Вертушка.jpg" alt="" class="active">
+      </div>
+      </div>
+
+      <!-- Описание -->
+      <section class="event">
+        <h2 class="event-title">"Вертушка 2025"</h2>
+
+        <div class="event-card">
+          <div class="event-info">
+            <p class="event-date"><i class="fas fa-calendar-alt"></i> 11 сентября 2025</p>
+            <p class="event-place"><i class="fas fa-map-marker-alt"></i> </p>
+            <p class="event-desc">
+              Яркая «Вертушка» показала первокурсникам все грани студенческой жизни — от танцев до науки. Это мероприятие, которое традиционно проходит в формате тематических станций, представляет собой организованное знакомство с внеучебной жизнью вуза. Его главная цель — помочь новым студентам найти единомышленников, раскрыть свой потенциал и влиться в сообщество университета, выбрав занятие по интересам.
+            </p>
+          </div>
+
+          <!-- Видео-секция -->
+          <section class="video-section fade-zoom">
+            <h2 class="video-title">🎥 Видео с мероприятия</h2>
+            <div class="video-wrapper">
+              <div class="video-container">
+                <video controls playsinline>
+                  <source src="video/Вертушка.MOV" type="video/mp4">
+                  Ваш браузер не поддерживает видео.
+                </video>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      
+      <!-- Кнопка назад -->
+      <div class="back-btn fade-in-up">
+        <a href="news.html" class="news-btn">← Вернуться ко всем новостям</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Футер -->
+  <footer>
+    <img src="images/logo.png" alt="Логотип">
+
+    <div class="footer-menus">
+      <nav class="footer-menu">
+        <a href="index.html">Главная</a>
+        <a href="we.html">Мы</a>
+      </nav>
+      <nav class="footer-menu">
+        <a href="life.html">Жизнь группы</a>
+        <a href="contact.html">Контакты</a>
+      </nav>
+    </div>
+
+    <div class="contact">
+      <p class="footer-text">+7 (8352) 22-21-47</p>
+      <p class="footer-text">rektorat@chuvgpu.ru</p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Чебоксары, ФТ-ИТиВП-25</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+  // Миниатюры 
+  const gallery = document.querySelector('.gallery-news');
+  const mainImg = gallery.querySelector('.gallery-main img');
+  const thumbs = gallery.querySelectorAll('.gallery-thumbs img');
+  const prevBtn = gallery.querySelector('.gallery-prev');
+  const nextBtn = gallery.querySelector('.gallery-next');
+
+  let currentIndex = 0;
+
+  function showImage(index) {
+  const selected = thumbs[index];
+  mainImg.style.opacity = 0;
+  setTimeout(() => {
+    mainImg.src = selected.src;
+    mainImg.style.opacity = 1;
+  }, 200);
+
+  thumbs.forEach(t => t.classList.remove('active'));
+  selected.classList.add('active');
+  currentIndex = index;
+  }
+
+  thumbs.forEach((thumb, index) => {
+  thumb.addEventListener('click', () => showImage(index));
+  });
+
+  prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
+  showImage(currentIndex);
+  });
+
+  nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % thumbs.length;
+  showImage(currentIndex);
+  });
+
+  showImage(0);
+
+  // Видео-секция — анимация появления
+  const videoSection = document.querySelector('.video-section');
+  if (videoSection) {
+    const videoObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          videoSection.classList.add('show');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    videoObserver.observe(videoSection);
+  }
+
+</script>
+</body>
+</html>

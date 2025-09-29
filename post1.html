@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Новость</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Шапка -->
+<header>
+  <div class="header-top">
+    <div class="faculty">Факультет физико-математического образования информатики и технологий</div>
+    <h1 class="group-title">ФТ-ИТиВП-25</h1>
+  </div>
+
+    <nav>
+    <ul class="header-menu">
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="we.html">Мы</a></li>
+      <li><a href="life.html">Жизнь группы</a></li>
+      <li><a href="news.html"  class="active">Новости</a></li>
+      <li><a href="contact.html" >Контакты</a></li>
+    </ul>
+    <!-- Кнопка бургер -->
+    <button class="burger" aria-label="Открыть меню">
+    <span></span>
+    <span></span>
+    <span></span>
+    </button>
+  </nav>
+</header>
+
+  <!-- Контент -->
+  <main>
+    <section class="news-post">
+      <h2 class="page-title fade-in-up">Первый день в университете 🎉</h2>
+      <p class="post-date fade-in-up">📅 1 сентября 2025</p>
+
+      <!-- Галерея -->
+      <div class="gallery-news fade-in-up">
+      <!-- Основное фото -->
+      <div class="gallery-main">
+        <img src="img/1 сентября (1).jpg" alt="Главное фото">
+      </div>
+
+      <button class="gallery-prev">&#10094;</button>
+      <button class="gallery-next">&#10095;</button>
+
+      <!-- Миниатюры -->
+      <div class="gallery-thumbs">
+        <img src="img/1 сентября (1).jpg" alt="" class="active">
+        <img src="img/1 сентября (2).jpg" alt="">
+      </div>
+      </div>
+
+      <!-- Описание -->
+      <section class="event">
+        <h2 class="event-title">🎉 День знаний</h2>
+
+        <div class="event-card">
+          <div class="event-info">
+            <p class="event-date"><i class="fas fa-calendar-alt"></i> 1 сентября 2025</p>
+            <p class="event-place"><i class="fas fa-map-marker-alt"></i> 330 аудитория ЧГПУ и Чувашская филармония</p>
+            <p class="event-desc">
+              1 сентября в зале Чувашской государственной филармонии для студентов первого курса Чувашского государственного педагогического университета им. И.Я. Яковлева прошло торжественное мероприятие, посвященное Дню знаний.
+            </p>
+            <p>Также подробнее вы можете посмотреть в сюжете <a href="https://vkvideo.ru/video-105377917_456248245" target="_blank">ГТРК "Чувашия"</a></p>
+          </div>
+
+          <div class="event-extra">
+            <h3>📌Интересное</h3>
+            <ul>
+              <li>Форма одежды: свободная, праздничная</li>
+              <li>Вход свободный для всех студентов</li>
+              <li>На 1 курс очного отделения ЧГПУ им. И.Я. Яковлева в 2025 году поступили 707 человек.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Кнопка назад -->
+      <div class="back-btn fade-in-up">
+        <a href="news.html" class="news-btn">← Вернуться ко всем новостям</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Футер -->
+  <footer>
+    <img src="images/logo.png" alt="Логотип">
+
+    <div class="footer-menus">
+      <nav class="footer-menu">
+        <a href="index.html">Главная</a>
+        <a href="we.html">Мы</a>
+      </nav>
+      <nav class="footer-menu">
+        <a href="life.html">Жизнь группы</a>
+        <a href="contact.html">Контакты</a>
+      </nav>
+    </div>
+
+    <div class="contact">
+      <p class="footer-text">+7 (8352) 22-21-47</p>
+      <p class="footer-text">rektorat@chuvgpu.ru</p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Чебоксары, ФТ-ИТиВП-25</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+  // Миниатюры 
+  const gallery = document.querySelector('.gallery-news');
+  const mainImg = gallery.querySelector('.gallery-main img');
+  const thumbs = gallery.querySelectorAll('.gallery-thumbs img');
+  const prevBtn = gallery.querySelector('.gallery-prev');
+  const nextBtn = gallery.querySelector('.gallery-next');
+
+  let currentIndex = 0;
+
+  function showImage(index) {
+  const selected = thumbs[index];
+  mainImg.style.opacity = 0;
+  setTimeout(() => {
+    mainImg.src = selected.src;
+    mainImg.style.opacity = 1;
+  }, 200);
+
+  thumbs.forEach(t => t.classList.remove('active'));
+  selected.classList.add('active');
+  currentIndex = index;
+  }
+
+  thumbs.forEach((thumb, index) => {
+  thumb.addEventListener('click', () => showImage(index));
+  });
+
+  prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
+  showImage(currentIndex);
+  });
+
+  nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % thumbs.length;
+  showImage(currentIndex);
+  });
+
+  showImage(0);
+</script>
+</body>
+</html>

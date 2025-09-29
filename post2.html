@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Новость</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Шапка -->
+<header>
+  <div class="header-top">
+    <div class="faculty">Факультет физико-математического образования информатики и технологий</div>
+    <h1 class="group-title">ФТ-ИТиВП-25</h1>
+  </div>
+
+    <nav>
+    <ul class="header-menu">
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="we.html">Мы</a></li>
+      <li><a href="life.html">Жизнь группы</a></li>
+      <li><a href="news.html"  class="active">Новости</a></li>
+      <li><a href="contact.html" >Контакты</a></li>
+    </ul>
+    <!-- Кнопка бургер -->
+    <button class="burger" aria-label="Открыть меню">
+    <span></span>
+    <span></span>
+    <span></span>
+    </button>
+  </nav>
+</header>
+
+  <!-- Контент -->
+  <main>
+    <section class="news-post">
+      <h2 class="page-title fade-in-up">Первое мероприятие!</h2>
+      <p class="post-date fade-in-up">📅 3 сентября 2025</p>
+
+     <!-- Галерея -->
+      <div class="gallery-news fade-in-up">
+      <!-- Основное фото -->
+      <div class="gallery-main">
+        <img src="img/Веревка.jpg" alt="Главное фото">
+      </div>
+
+      <button class="gallery-prev">&#10094;</button>
+      <button class="gallery-next">&#10095;</button>
+
+      <!-- Миниатюры -->
+      <div class="gallery-thumbs">
+        <img src="img/Веревка.jpg" alt="" class="active">
+        <img src="img/Веревка (5).jpg" alt="">
+        <img src="img/Веревка (6).jpg" alt="">
+        <img src="img/Веревка (2).jpg" alt="">
+      </div>
+      </div>
+
+      <!-- Описание -->
+      <section class="event">
+        <h2 class="event-title">"Веревка 2025!"</h2>
+
+        <div class="event-card">
+          <div class="event-info">
+            <p class="event-date"><i class="fas fa-calendar-alt"></i> 3 сентября 2025</p>
+            <p class="event-place"><i class="fas fa-map-marker-alt"></i></p>
+            <p class="event-desc">
+              Традиционный тимбилдинг «Веревка» объединил первокурсников факультета физико-математического образования, информатики и технологий ЧГПУ. Это мероприятие, название которого символизирует связь и единство участников, является для многих вузов классическим способом помочь новым студентам в неформальной игровой обстановке познакомиться друг с другом, преодолеть барьеры в общении и сплотиться в одну команду, создав положительный настрой на начало учебного года.
+            </p>
+          </div>
+        </div>    
+        
+        <section class="vk-section">
+          <h2 class="vk-title">Мы в VK</h2>
+          <div id="vk_post_-219297158_795"></div>
+        </section>
+
+        <script type="text/javascript" src="https://vk.com/js/api/openapi.js?173"></script>
+        <script type="text/javascript">
+          (function() {
+            VK.Widgets.Post("vk_post_-219297158_795", -219297158, 795, '91ZzRftIboHGWRtBz83jVFOGxJsE');
+          }());
+        </script>
+      </section>
+      
+      <!-- Кнопка назад -->
+      <div class="back-btn fade-in-up">
+        <a href="news.html" class="news-btn">← Вернуться ко всем новостям</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Футер -->
+  <footer>
+    <img src="images/logo.png" alt="Логотип">
+
+    <div class="footer-menus">
+      <nav class="footer-menu">
+        <a href="index.html">Главная</a>
+        <a href="we.html">Мы</a>
+      </nav>
+      <nav class="footer-menu">
+        <a href="life.html">Жизнь группы</a>
+        <a href="contact.html">Контакты</a>
+      </nav>
+    </div>
+
+    <div class="contact">
+      <p class="footer-text">+7 (8352) 22-21-47</p>
+      <p class="footer-text">rektorat@chuvgpu.ru</p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Чебоксары, ФТ-ИТиВП-25</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+  // Миниатюры 
+  const gallery = document.querySelector('.gallery-news');
+  const mainImg = gallery.querySelector('.gallery-main img');
+  const thumbs = gallery.querySelectorAll('.gallery-thumbs img');
+  const prevBtn = gallery.querySelector('.gallery-prev');
+  const nextBtn = gallery.querySelector('.gallery-next');
+
+  let currentIndex = 0;
+
+  function showImage(index) {
+  const selected = thumbs[index];
+  mainImg.style.opacity = 0;
+  setTimeout(() => {
+    mainImg.src = selected.src;
+    mainImg.style.opacity = 1;
+  }, 200);
+
+  thumbs.forEach(t => t.classList.remove('active'));
+  selected.classList.add('active');
+  currentIndex = index;
+  }
+
+  thumbs.forEach((thumb, index) => {
+  thumb.addEventListener('click', () => showImage(index));
+  });
+
+  prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
+  showImage(currentIndex);
+  });
+
+  nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % thumbs.length;
+  showImage(currentIndex);
+  });
+
+  showImage(0);
+</script>
+</body>
+</html>
