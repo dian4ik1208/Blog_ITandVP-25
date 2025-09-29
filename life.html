@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Жизнь группы</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Шапка -->
+  <header>
+    <div class="header-top">
+      <div class="faculty">Факультет физико-математического образования информатики и технологий</div>
+      <h1 class="group-title">ФТ-ИТиВП-25</h1>
+    </div>
+
+    <nav>
+    <ul class="header-menu">
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="we.html">Мы</a></li>
+      <li><a href="life.html"  class="active">Жизнь группы</a></li>
+      <li><a href="news.html">Новости</a></li>
+      <li><a href="contact.html" >Контакты</a></li>
+    </ul>
+    <!-- Кнопка бургер -->
+    <button class="burger" aria-label="Открыть меню">
+    <span></span>
+    <span></span>
+    <span></span>
+    </button>
+  </nav>
+  </header>
+
+  <!-- Интро -->
+  <section class="life-intro">
+    <h2 class="typing">Жизнь группы 🎉</h2>
+    <div class="intro-text">
+      <p>Добро пожаловать в жизнь нашей группы!</p>
+      <p>Здесь мы не только учимся, но и живём полной студенческой жизнью: от бессонных ночей перед сессией до шумных вечеринок и походов «в никуда» (но зато дружно 😅).</p>
+      <p>У нас всегда найдётся место для шутки, тёплой компании и неожиданных приключений.</p>
+      <p>Так что устраивайтесь поудобнее — впереди истории, фотки и достижения, которыми мы гордимся и которые точно поднимут настроение! 🚀✨</p>
+    </div>
+  </section>
+
+  <main class="main-life">
+
+    <!-- 🏆 Достижения -->
+    <section class="achievements">
+      <h2 class="life-title">[ 🏆 Достижения группы ]</h2>
+      <div class="achievements-list">
+        <div class="achievement">🥇 </div>
+        <div class="achievement">🥈 </div>
+        <div class="achievement">🎭</div>
+        <div class="achievement">📚 </div>
+      </div>
+    </section>
+
+    <!-- 😂 Мемы и юмор -->
+    <section class="memes">
+      <h2 class="life-title">[ 😂 Мемы и юмор группы ]</h2>
+      <div class="memes-grid">
+        <div class="meme">
+          <img src="img/mem1.jpg" alt="Мем 1">
+          <p>Когда думаешь, что заучил весь материал, а на экзамене попался билет №25...</p>
+        </div>
+        <div class="meme">
+          <img src="img/mem2.jpg" alt="Мем 2">
+          <p>«Пары с 8:00» — звучит как приговор ☕</p>
+        </div>
+        <div class="meme">
+          <img src="img/mem3.jpg" alt="Мем 3">
+          <p>Студент всегда готов: спать, есть, откладывать дела на завтра 😅</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Футер -->
+  <footer>
+    <img src="images/logo.png" alt="Логотип">
+
+    <div class="footer-menus">
+      <nav class="footer-menu">
+        <a href="#">Главная</a>
+        <a href="#">Мы</a>
+      </nav>
+      <nav class="footer-menu">
+        <a href="#">Наша группа</a>
+        <a href="#">Контакты</a>
+      </nav>
+    </div>
+
+    <div class="contact">
+      <p class="footer-text">+7 (8352) 22-21-47</p>
+      <p class="footer-text">rektorat@chuvgpu.ru</p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Чебоксары, ФТ-ИТиВП-25</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lines = document.querySelectorAll(".intro-text p");
+      lines.forEach((line, i) => {
+        setTimeout(() => line.classList.add("show"), i * 800);
+      });
+    });
+  </script>
+</body>
+</html>
