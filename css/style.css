@@ -1788,18 +1788,6 @@ footer{
   .gallery-grid img {
     flex: 1 1 100%;
   }
-
-  footer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 16px;
-  }
-
-  .footer-menus {
-    flex-direction: column;
-    gap: 20px;
-  }
 }
 
 
