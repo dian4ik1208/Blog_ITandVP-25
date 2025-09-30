@@ -1715,4 +1715,92 @@ footer{
   }
 }
 
+/* ====== Адаптив: страница "Жизнь группы" ====== */
+
+/* Планшет */
+@media (max-width: 900px) {
+  .curator-card-lk {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .curator-photo-lk {
+    max-width: 280px;
+    border-radius: 12px;
+  }
+
+  .curator-info h2 {
+    font-size: 22px;
+  }
+
+  .curator-role {
+    font-size: 15px;
+  }
+
+  .accordion-section {
+    padding: 0 10px;
+  }
+
+  .accordion-btn {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .gallery-grid img {
+    flex: 1 1 250px;
+    max-width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+}
+
+/* Мобильные */
+@media (max-width: 600px) {
+  .curator-photo-lk {
+    max-width: 200px;
+  }
+
+  .curator-info h2 {
+    font-size: 20px;
+  }
+
+  .curator-role {
+    font-size: 14px;
+  }
+
+  .accordion-btn {
+    font-size: 15px;
+  }
+
+  .accordion-content {
+    font-size: 14px;
+  }
+
+  .gallery-grid img {
+    flex: 1 1 100%;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .footer-menus {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
 
